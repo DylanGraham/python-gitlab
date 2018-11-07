@@ -1,10 +1,10 @@
-FROM python:3.7-alpine AS build
+FROM google/cloud-sdk:224.0.0-alpine AS build
 
 WORKDIR /opt/python-gitlab
 COPY . .
 RUN python setup.py bdist_wheel
 
-FROM python:3.7-alpine
+FROM google/cloud-sdk:224.0.0-alpine
 
 WORKDIR /opt/python-gitlab
 COPY --from=build /opt/python-gitlab/dist dist/

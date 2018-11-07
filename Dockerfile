@@ -10,7 +10,7 @@ RUN python setup.py bdist_wheel
 
 FROM google/cloud-sdk:224.0.0-alpine
 
-RUN apk add --update py-setuptools py-pip \
+RUN apk add --update py-setuptools py-pip jq \
     && rm -rf /var/cache/apk/*
 
 WORKDIR /opt/python-gitlab
